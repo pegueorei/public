@@ -194,6 +194,8 @@
     <br>
     <br>
     <button id="btn-save" onclick="getValues()">Salvar</button>
+    <button id="btn-limpar" onclick="limparCampos()">Limpar</button>
+
 </body>
 
 
@@ -321,6 +323,12 @@
         window.document.getElementById('lbl_5').innerHTML = contador5;
         window.document.getElementById('lbl_k').innerHTML = contadorK;
 
+    }
+
+    function limparCampos(){
+        for(x=0; x <= 24; x++){
+            $('#val_'+x).val("");
+        }
     }
 
     $(document).ready(function(){
