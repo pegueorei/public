@@ -1,0 +1,368 @@
+<style>
+    .pegue_o_rei{
+        text-align:center; 
+        font-weight:bold; 
+        width: 50px; 
+        height: 50px;
+        font-size: 30px;
+    }
+</style>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/firebaseSave.js"></script>
+
+    <table style="border:1px; border-style: solid; border-color:black; float:left; margin-right: 50px;">
+        <tr>
+            <th>
+                <input type="text" maxlength="1" id="val_0" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_1" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_2" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_3" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_4" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <input type="text" maxlength="1" id="val_5" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_6" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_7" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_8" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_9" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <input type="text" maxlength="1" id="val_10" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_11" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_12" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_13" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_14" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <input type="text" maxlength="1" id="val_15" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_16" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_17" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_18" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_19" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <input type="text" maxlength="1" id="val_20" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_21" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_22" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_23" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+            <th>
+                <input type="text" maxlength="1" id="val_24" class="pegue_o_rei" onkeyup="verifica_carta(this)">
+            </th>
+        </tr>
+    </table>
+
+    <table style="border:1px; border-style: solid; border-color:black; float:left; margin-right: 50px;">
+        <tr> 
+            <th>
+                <label>Carta</label>
+            </th>
+            <th>
+                <label>Restam</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>1</label>
+            </th>
+            <th>
+                <label id="lbl_1">7</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>2</label>
+            </th>
+            <th>
+                <label id="lbl_2">4</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>3</label>
+            </th>
+            <th>
+                <label id="lbl_3">5</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>4</label>
+            </th>
+            <th>
+                <label id="lbl_4">5</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>5</label>
+            </th>
+            <th>
+                <label id="lbl_5">3</label>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>K</label>
+            </th>
+            <th>
+                <label id="lbl_k">1</label>
+            </th>
+        </tr>
+    </table>
+
+    <div>
+        <label>
+            <--- Pontuação --->
+            <p></p>
+            Carta alocada 1: +10
+            <br>
+            Carta alocada 2: +20
+            <br>
+            Carta alocada 3: +30
+            <br>
+            Carta alocada 4: +40
+            <br>
+            Carta alocada 5: +50
+            <br>
+            Carta alocada K: +100
+            <br>
+            Bingo : +10
+        </label>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="btn-save" onclick="getValues()">Salvar</button>
+</body>
+
+
+<script>
+    function getValues(){
+        c1 = $('#val_0').val();
+        c2 = $('#val_1').val();
+        c3 = $('#val_2').val();
+        c4 = $('#val_3').val();
+        c5 = $('#val_4').val();
+        c6 = $('#val_5').val();
+        c7 = $('#val_6').val();
+        c8 = $('#val_7').val();
+        c9 = $('#val_8').val();
+        c10 = $('#val_9').val();
+        c11 = $('#val_10').val();
+        c12 = $('#val_11').val();
+        c13 = $('#val_12').val();
+        c14 = $('#val_13').val();
+        c15 = $('#val_14').val();
+        c16 = $('#val_15').val();
+        c17 = $('#val_16').val();
+        c18 = $('#val_17').val();
+        c19 = $('#val_18').val();
+        c20 = $('#val_19').val();
+        c21 = $('#val_20').val();
+        c22 = $('#val_21').val();
+        c23 = $('#val_22').val();
+        c24 = $('#val_23').val();
+        c25 = $('#val_24').val();
+
+        val = [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25];
+
+        game_database.new(val);
+    }
+
+    function verifica_carta(input){
+        id = input.id;
+
+        contador1 = 7;
+        contador2 = 4;
+        contador3 = 5;
+        contador4 = 5;
+        contador5 = 3;
+        contadorK = 1;
+
+        cont_1 = 0;
+        cont_2 = 0;
+        cont_3 = 0;
+        cont_4 = 0;
+        cont_5 = 0;
+        cont_K = 0;
+
+        tt = 0;
+
+        $('.pegue_o_rei').each(function(index,element){
+            if($(element).val() == 1){
+                cont_1 += 1;
+                tt += 10;
+            }
+
+            if($(element).val() == 2){
+                cont_2 += 1;
+                tt += 20;
+            }
+
+            if($(element).val() == 3){
+                cont_3 += 1;
+                tt += 30;
+            }
+
+            if($(element).val() == 4){
+                cont_4 += 1;
+                tt += 40;
+            }
+
+            if($(element).val() == 5){
+                cont_5 += 1;
+                tt += 50;
+            }
+
+            if($(element).val() == 'k' || $(element).val() == 'K'){
+                cont_K += 1;
+                tt += 100;
+            }
+        })
+
+        value = window.document.getElementById(id).value;
+
+        if(value == 1){
+            window.document.getElementById(id).style.backgroundColor = "green";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == 2){
+            window.document.getElementById(id).style.backgroundColor = "orange";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == 3){
+            window.document.getElementById(id).style.backgroundColor = "yellow";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == 4){
+            window.document.getElementById(id).style.backgroundColor = "purple";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == 5){
+            window.document.getElementById(id).style.backgroundColor = "blue";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == "K" || value == "k"){
+            window.document.getElementById(id).style.backgroundColor = "red";
+            window.document.getElementById(id).style.color = "black";
+        }else if(value == ""){
+            window.document.getElementById(id).style.backgroundColor = "white";
+            window.document.getElementById(id).style.color = "black";
+        }
+
+        //Contador
+        contador1 = contador1 - cont_1;
+        contador2 = contador2 - cont_2;
+        contador3 = contador3 - cont_3;
+        contador4 = contador4 - cont_4;
+        contador5 = contador5 - cont_5;
+        contadorK = contadorK - cont_K;
+
+        window.document.getElementById('lbl_1').innerHTML = contador1;
+        window.document.getElementById('lbl_2').innerHTML = contador2;
+        window.document.getElementById('lbl_3').innerHTML = contador3;
+        window.document.getElementById('lbl_4').innerHTML = contador4;
+        window.document.getElementById('lbl_5').innerHTML = contador5;
+        window.document.getElementById('lbl_k').innerHTML = contadorK;
+
+    }
+
+    $(document).ready(function(){
+
+        $('.pegue_o_rei').on('keypress', function(e){
+
+            keycode = e.keyCode;
+
+            carta1 = $('#lbl_1').text();
+            carta2 = $('#lbl_2').text();
+            carta3 = $('#lbl_3').text();
+            carta4 = $('#lbl_4').text();
+            carta5 = $('#lbl_5').text();
+            cartaK = $('#lbl_k').text();
+            
+            if(keycode == 49 && carta1 == 0){
+                e.preventDefault();
+            }
+
+            if(keycode == 50 && carta2 == 0){
+                e.preventDefault();
+            }
+
+            if(keycode == 51 && carta3 == 0){
+                e.preventDefault();
+            }
+
+            if(keycode == 52 && carta4 == 0){
+                e.preventDefault();
+            }
+
+            if(keycode == 53 && carta5 == 0){
+                e.preventDefault();
+            }
+
+            if(keycode == 75 && cartaK == 0){
+                e.preventDefault();
+            }
+
+            // if(keycode != 49 && keycode != 50 && keycode != 51 && keycode != 52 && keycode != 53 && keycode != 75){
+            //     e.preventDefault();
+            // }
+        })
+    })
+</script>
